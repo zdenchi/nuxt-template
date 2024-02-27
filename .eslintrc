@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "@nuxt/eslint-config",
+    "@vue/eslint-config-prettier"
+  ],
+  "rules": {
+    "space-before-function-paren": "off",
+    "no-return-assign": "off",
+    "vue/no-v-html": "off",
+    "prettier/prettier": [
+      "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ]
+  }
+}

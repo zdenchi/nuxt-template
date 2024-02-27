@@ -1,75 +1,50 @@
 # Nuxt 3 Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Build and Deploy on cloud provider
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
+Change build command from `nuxt build` to `npx prisma generate && nuxt build`
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Different types of dev server:
 
 ```bash
-# npm
-npm run dev
+# simple dev server
+bun dev
 
-# pnpm
-pnpm run dev
+# dev server available on your local network
+bun host
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+# dev server with local tunnel
+bun tunnel
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Performance
+
+```vue
+<NuxtLazyHydrate when-idle>
+  <AppComp>Runs when the main thread work is done and the browser goes idle. Not supported in Safari.</AppComp>
+</NuxtLazyHydrate>
+
+<NuxtLazyHydrate :on-interaction="['click', 'touchstart']">
+  <AppComp>Runs only after interacts with a component in a certain way.</AppComp>
+</NuxtLazyHydrate>
+
+<NuxtLazyHydrate when-triggered="triggerHydration">
+  <AppComp>Allows to bind a custom function that returns a boolean reactive value.</AppComp>
+</NuxtLazyHydrate>
+
+<NuxtLazyHydrate when-visible>
+  <AppComp>Hydrates the component when it appears in the viewport.</AppComp>
+</NuxtLazyHydrate>
+
+<NuxtLazyHydrate>
+  <AppComp>For never hydrate.</AppComp>
+</NuxtLazyHydrate>
+
+<NuxtLazyHydrate>
+  <AppComp>For never hydrate</AppComp>
+</NuxtLazyHydrate>
+```
