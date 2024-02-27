@@ -4,6 +4,8 @@
 
     <div class="flex w-full max-w-60 gap-2.5">
       <LangSwitcher class="w-full" />
+
+      <ColorMode />
     </div>
   </div>
 </template>
